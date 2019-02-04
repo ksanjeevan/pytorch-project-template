@@ -1,0 +1,53 @@
+{
+
+    "name"          :   "Urban Testing",
+    "data"          :   {
+                            "type"      :   "FolderDataManager",
+                            "path"      :   "/home/kiran/Documents/DATA/flowers",
+                            "format"    :   "image",
+                            "loader"    :   {
+                                                "shuffle"       : true,
+                                                "batch_size"    : 16,
+                                                "num_workers"   : 4,
+                                                "drop_last"     : true
+                                            },
+                            "splits"    :   {
+                                                "train" : 0.7, 
+                                                "val"   : 0.2,
+                                                "test"  : 0.1        
+                                            }
+                        },
+    "transforms"    :   {
+                            "type"      :   "ImageTransforms",
+                            "args"      :   {
+                                                "size"          : 224,
+                                                "scale"         : [0.08, 1.0],
+                                                "ratio"         : [0.75, 1.333],
+                                                "colorjitter"         : [0.2,0.2,0.2]
+                                            }
+                        },
+    "optimizer"     :   {
+                            "type"      :   "Adam",
+                            "args"      :   {
+                                                "lr"            : 0.0005,
+                                                "weight_decay"  : 0,
+                                                "amsgrad"       : false
+                                            }
+                        },
+    "model"         :   {
+                            "type"      :   "VGG16"
+                        },
+    "train"         :   {
+                            "loss"      :   "cross_entropy",
+                            "epochs"    :   100,
+                            "save_dir"  :   "saved/",
+                            "save_p"    :   1,
+                            "verbosity" :   2,
+                            
+                            "monitor"   :   "min val_loss",
+                            "early_stop":   10,
+                            "tbX"       :   true
+                        },
+    "metrics"       :   "classification_metrics"
+
+}

@@ -1,0 +1,4 @@
+saved/
+*.pyc
+__pychache__/*
+.DS_Store
