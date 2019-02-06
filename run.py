@@ -3,7 +3,6 @@ import argparse, json, os
 import torch
 
 from utils import Logger
-#from data import FolderDataManager, ImageTransforms
 import data as data_module
 import net as net_module
 
@@ -11,9 +10,6 @@ from train import Trainer
 
 from eval import ClassificationEvaluator, ImageInference
 
-#from net import ToyCNN, VGG16
-#from net import cross_entropy, nll_loss
-#from net import accuracy, avg_precision, avg_recall
 
 def _get_transform(config, name):
     tsf_name = config['transforms']['type']

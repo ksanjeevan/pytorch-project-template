@@ -139,7 +139,7 @@ Given a trained model:
 
  Using a pretrained model:
 ```
-./run.py train -r saved/0203_180810/checkpoints/model_best.pth
+./run.py result_plots/bird.jpeg -r saved/0203_180810/checkpoints/model_best.pth
 ```
  
 Respectively:
